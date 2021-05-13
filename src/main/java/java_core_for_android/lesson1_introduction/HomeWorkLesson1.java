@@ -20,6 +20,15 @@ public class HomeWorkLesson1 {
 
         String strVar = "Geek Brains!";
 
-        
+        // 3.
+        float expressionResult = calculateExpression (1.1f, 2.2f, 3.3f, 4.4f);
+        System.out.printf("Expression calculation  result is: %.3f ", expressionResult);
+
+        // 4.
+
+    }
+
+    private static float calculateExpression (float a, float b, float c, float d) {
+        return a * (b + (c / d));
     }
 }
