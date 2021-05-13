@@ -28,16 +28,20 @@ public class HomeWorkLesson1 {
         boolean checkSumRangeResult = checkSumRange(5, 5);
         System.out.printf("The sum of the numbers in the range from 10 to 20 is %b.%n", checkSumRangeResult);
 
-        //5.
+        // 5.
         checkSignOfNum(0);
 
         // 6.
         boolean isNumPositive = checkSignOfNumber(-1);
         System.out.println(isNumPositive);
 
-        //7.
+        // 7.
         String name = "Артем";
         printHello(name);
+
+        // 8.
+        int year = 2204;
+        checkLeapYear(year);
 
     }
 
@@ -60,5 +64,23 @@ public class HomeWorkLesson1 {
 
     private static void printHello(String name) {
         System.out.printf("Привет, %s!%n", name);
+    }
+
+    private static void checkLeapYear(int year) {
+        if (year % 4 == 0){
+            if (year % 100 == 0){
+                if (year % 400 == 0){
+                    System.out.printf("Year %d is leap year.%n", year);
+                }
+                else {
+                    System.out.printf("Year %d is not leap year.%n", year);
+                }
+            } else {
+                System.out.printf("Year %d is leap year.%n", year);
+            }
+        }
+        else {
+            System.out.printf("Year %d is not leap year.%n", year);
+        }
     }
 }
