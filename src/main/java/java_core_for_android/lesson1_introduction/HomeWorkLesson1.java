@@ -22,13 +22,19 @@ public class HomeWorkLesson1 {
 
         // 3.
         float expressionResult = calculateExpression (1.1f, 2.2f, 3.3f, 4.4f);
-        System.out.printf("Expression calculation  result is: %.3f ", expressionResult);
+        System.out.printf("Expression calculation  result is: %.3f.%n", expressionResult);
 
         // 4.
+        boolean checkSumRangeResult = checkSumRange(5, 5);
+        System.out.printf("The sum of the numbers in the range from 10 to 20 is %b.%n", checkSumRangeResult);
 
     }
 
     private static float calculateExpression (float a, float b, float c, float d) {
         return a * (b + (c / d));
+    }
+
+    private static boolean checkSumRange(int a, int b) {
+        return (a+b >= 10 && a+b <=20) ;
     }
 }
