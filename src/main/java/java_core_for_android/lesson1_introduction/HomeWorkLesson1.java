@@ -35,7 +35,9 @@ public class HomeWorkLesson1 {
         boolean isNumPositive = checkSignOfNumber(-1);
         System.out.println(isNumPositive);
 
-
+        //7.
+        String name = "Артем";
+        printHello(name);
 
     }
 
@@ -54,5 +56,9 @@ public class HomeWorkLesson1 {
 
     private static boolean checkSignOfNumber(int i) {
         return !(i>=0);
+    }
+
+    private static void printHello(String name) {
+        System.out.printf("Привет, %s!%n", name);
     }
 }
