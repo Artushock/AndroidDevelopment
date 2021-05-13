@@ -28,6 +28,10 @@ public class HomeWorkLesson1 {
         boolean checkSumRangeResult = checkSumRange(5, 5);
         System.out.printf("The sum of the numbers in the range from 10 to 20 is %b.%n", checkSumRangeResult);
 
+        //5.
+        checkSignOfNum(-1);
+
+
     }
 
     private static float calculateExpression (float a, float b, float c, float d) {
@@ -36,5 +40,9 @@ public class HomeWorkLesson1 {
 
     private static boolean checkSumRange(int a, int b) {
         return (a+b >= 10 && a+b <=20) ;
+    }
+
+    private static void checkSignOfNum(int i) {
+        System.out.println(i>=0);
     }
 }
