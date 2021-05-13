@@ -40,8 +40,9 @@ public class HomeWorkLesson1 {
         printHello(name);
 
         // 8.
-        int year = 2204;
+        int year = 2022;
         checkLeapYear(year);
+        checkLeapYearMod(year);
 
     }
 
@@ -59,7 +60,7 @@ public class HomeWorkLesson1 {
     }
 
     private static boolean checkSignOfNumber(int i) {
-        return !(i>=0);
+        return i<0;
     }
 
     private static void printHello(String name) {
@@ -82,5 +83,11 @@ public class HomeWorkLesson1 {
         else {
             System.out.printf("Year %d is not leap year.%n", year);
         }
+    }
+
+    private static void checkLeapYearMod(int year) {
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)){
+            System.out.printf("Year %d is leap year.%n", year);
+        } else System.out.printf("Year %d is not leap year.%n", year);
     }
 }
