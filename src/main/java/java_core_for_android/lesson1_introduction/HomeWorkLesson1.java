@@ -29,7 +29,12 @@ public class HomeWorkLesson1 {
         System.out.printf("The sum of the numbers in the range from 10 to 20 is %b.%n", checkSumRangeResult);
 
         //5.
-        checkSignOfNum(-1);
+        checkSignOfNum(0);
+
+        // 6.
+        boolean isNumPositive = checkSignOfNumber(-1);
+        System.out.println(isNumPositive);
+
 
 
     }
@@ -43,6 +48,11 @@ public class HomeWorkLesson1 {
     }
 
     private static void checkSignOfNum(int i) {
-        System.out.println(i>=0);
+        if (i>=0) System.out.println("I've got positive number.");
+        else System.out.println("I've got negative number.");
+    }
+
+    private static boolean checkSignOfNumber(int i) {
+        return !(i>=0);
     }
 }
