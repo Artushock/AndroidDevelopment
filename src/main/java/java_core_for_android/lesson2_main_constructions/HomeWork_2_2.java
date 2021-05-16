@@ -5,7 +5,6 @@ package java_core_for_android.lesson2_main_constructions;
 
 public class HomeWork_2_2 {
     public static void main(String[] args) {
-
         int[] arr = new int[8];
         int arg = 0;
 
@@ -14,6 +13,7 @@ public class HomeWork_2_2 {
             arg+=3;
         }
 
+        //print
         for (int n : arr){
             System.out.print(n + " ");
         }

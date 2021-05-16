@@ -11,6 +11,7 @@ public class HomeWork_2_3 {
             arr[i] = arr[i]<6 ? arr[i]*2 : arr[i];
         }
 
+        //print
         for (int n : arr) {
             System.out.print(n + " ");
         }
