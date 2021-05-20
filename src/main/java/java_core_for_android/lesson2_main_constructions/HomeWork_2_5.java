@@ -9,8 +9,20 @@ public class HomeWork_2_5 {
         int min = arr[0];
 
         for (int n : arr){
-            if (n > max) max = n;
-            if (n < min) min = n;
+            //my first realisation
+            //if (n > max) max = n;
+            //if (n < min) min = n;
+
+            //correct answer #1
+            //if(n > max) {
+            //  max = n;
+            //} else if (n < min) {
+            //  min = n;
+            //}
+
+            //correct answer #2
+            min = Math.min(min, n);
+            max = Math.max(max, n);
         }
 
         //print

@@ -18,12 +18,16 @@ public class HomeWork_2_6 {
             sum +=n;
         }
 
-        if (sum % 2 != 0) return false;
+        if (sum % 2 != 0) {
+            return false;
+        }
 
         sum = sum/2;
         for (int n : arr){
             sum = sum - n;
-            if (sum <= 0) break;
+            if (sum <= 0) {
+                break;
+            }
         }
         return sum == 0;
     }

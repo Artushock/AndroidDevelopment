@@ -9,10 +9,17 @@ public class HomeWork_2_4 {
     public static void main(String[] args) {
         int[][] arr = new int[arrSize][arrSize];
 
+        // my realistion
+        //for (int i = 0; i < arr.length; i++) {
+        //    for (int j = 0; j < arr.length; j++) {
+        //      if (i == j || i+j == arr.length-1) arr[i][j] = 1;
+        //   }
+        //}
+
+        //correct answer
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
-               if (i == j || i+j == arr.length-1) arr[i][j] = 1;
-            }
+            arr[i][i] = 1;
+            arr[i][arr.length-1-i] = 1;
         }
 
         // print
