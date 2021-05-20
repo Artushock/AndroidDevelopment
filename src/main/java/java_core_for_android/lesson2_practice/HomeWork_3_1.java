@@ -14,7 +14,7 @@ public class HomeWork_3_1 {
     private static final int AMOUNT_OF_ATTEMPTS = 3;
 
     public static void main(String[] args) {
-        System.out.println("Угадай число\n");
+        System.out.println("Угадай число");
 
         boolean isGame = true;
 
@@ -38,23 +38,20 @@ public class HomeWork_3_1 {
                 break;
             } else if (userNumber < randomNumber){
                 System.out.printf("Вы ввели число %d. Это меньше чем загаданное число.%n", userNumber);
-                checkAttempt(--attempt);
 
             } else {
                 System.out.printf("Вы ввели число %d. Это больше чем загаданное число.%n", userNumber);
-                checkAttempt(--attempt);
             }
-            //System.out.print(randomNumber + " " + userNumber);
+
+            if (--attempt>0){
+                System.out.printf("Осталось %d попыток.%n", i);
+            } else {
+                System.out.printf("Попытки закончились! Правильный ответ: %d. %n", randomNumber);
+            }
         }
     }
 
-    private static void checkAttempt(int i) {
-        if (i>0){
-            System.out.printf("Осталось %d попыток.%n", i);
-        } else {
-            System.out.printf("Попытки закончились! Попробуйте еще. %n");
-        }
-    }
+
 
     private static int getUserNumber() {
         System.out.print ("Введите число от 0 до 9: ");
