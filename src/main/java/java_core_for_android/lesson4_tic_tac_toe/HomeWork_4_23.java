@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class HomeWork_4_23 {
 
-    private static final int SIZE = 3;
+    private static final int SIZE = 5;
     private static final int DOTS_TO_WIN = 3;
 
     private static final char DOT_EMPTY = '•';
@@ -29,10 +29,11 @@ public class HomeWork_4_23 {
             initGame();
             printMap();
             while (true){
-                humanTurn();
+                boolean isPlayerWin;
+                isPlayerWin = humanTurn();
                 printMap();
 
-                if(isPlayerWin(DOT_X)){
+                if(isPlayerWin){
                     System.out.println("Человек победил!");
                     break;
                 }
@@ -41,10 +42,9 @@ public class HomeWork_4_23 {
                     break;
                 }
 
-                aiTurn();
+                isPlayerWin = aiTurn();
                 printMap();
-
-                if(isPlayerWin(DOT_O)){
+                if(isPlayerWin){
                     System.out.println("Человек компьютер!");
                     break;
                 }
@@ -101,7 +101,7 @@ public class HomeWork_4_23 {
         return turns == SIZE*SIZE;
     }
 
-    private static void humanTurn() {
+    private static boolean humanTurn() {
         int rowNumber, columnNumber;
         System.out.println("Ход человека");
 
@@ -112,9 +112,10 @@ public class HomeWork_4_23 {
 
         map[rowNumber][columnNumber] = DOT_X;
         turns++;
+        return isTurnWin(DOT_X, rowNumber, columnNumber);
     }
 
-    private static void aiTurn() {
+    private static boolean aiTurn() {
         int rowNumber, columnNumber;
         System.out.println("Ход компьтера");
 
@@ -125,6 +126,7 @@ public class HomeWork_4_23 {
 
         map[rowNumber][columnNumber] = DOT_O;
         turns++;
+        return isTurnWin(DOT_O, rowNumber, columnNumber);
     }
 
     private static int getNumber(String str) {
@@ -149,7 +151,7 @@ public class HomeWork_4_23 {
         return map[rowNumber][columnNumber] != DOT_EMPTY;
     }
 
-    private static boolean isPlayerWin(char c) {
+    /*private static boolean isPlayerWin(char c) {
         int counter = 0;
         //check row
         for (int i = 0; i < SIZE; i++){
@@ -199,6 +201,111 @@ public class HomeWork_4_23 {
             if(map[i][SIZE - i -1] == c){
                 counter++;
                 if(counter == DOTS_TO_WIN){
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+        }
+        return false;
+    }*/
+
+    private static boolean isTurnWin(char c, int x, int y){
+        int counter;
+        int startCountX;
+        int endCountX;
+        int startCountY;
+        int endCountY;
+
+
+        // check row
+        startCountY = y - (DOTS_TO_WIN - 1);
+        endCountY = y + (DOTS_TO_WIN -1);
+        while (startCountY < 0){
+            startCountY++;
+        }
+        while (endCountY >= SIZE){
+            endCountY--;
+        }
+        counter = 0;
+        for (int i = startCountY; i <= endCountY; i++) {
+            if (map[x][i] == c){
+                counter++;
+                if (counter == DOTS_TO_WIN){
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+        }
+
+        //check columns
+        startCountX = x - (DOTS_TO_WIN - 1);
+        endCountX = x + (DOTS_TO_WIN -1);
+        while (startCountX < 0){
+            startCountX++;
+        }
+        while (endCountX >= SIZE){
+            endCountX--;
+        }
+        counter = 0;
+        for (int i = startCountX; i <= endCountX; i++) {
+            if (map[i][y] == c){
+                counter++;
+                if (counter == DOTS_TO_WIN){
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+        }
+
+        //check diagonal#1
+        startCountX = x - (DOTS_TO_WIN - 1);
+        startCountY = y - (DOTS_TO_WIN - 1);
+        endCountX = x + (DOTS_TO_WIN - 1);
+        endCountY = y + (DOTS_TO_WIN - 1);
+
+        while (startCountX < 0 || startCountY < 0){
+            startCountX++;
+            startCountY++;
+        }
+        while (endCountX >= SIZE || endCountY >= SIZE){
+            endCountX--;
+            endCountY--;
+        }
+        counter = 0;
+        for (int i = 0; i <= Math.abs(endCountX-startCountX); i++) {
+            if (map[startCountX+i][startCountY+i]==c){
+                counter++;
+                if (counter == DOTS_TO_WIN){
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+        }
+
+        //check diagonal#2
+        startCountX = x + (DOTS_TO_WIN - 1);
+        startCountY = y - (DOTS_TO_WIN - 1);
+        endCountX = x - (DOTS_TO_WIN -1);
+        endCountY = y + (DOTS_TO_WIN -1);
+
+        while (startCountX >= SIZE || startCountY < 0){
+            startCountX--;
+            startCountY++;
+        }
+        while (endCountX < 0 || endCountY >= SIZE){
+            endCountX++;
+            endCountY--;
+        }
+
+        counter = 0;
+        for (int i = 0; i <= Math.abs(endCountX-startCountX); i++) {
+            if (map[startCountX-i][startCountY+i]==c){
+                counter++;
+                if (counter == DOTS_TO_WIN){
                     return true;
                 }
             } else {
