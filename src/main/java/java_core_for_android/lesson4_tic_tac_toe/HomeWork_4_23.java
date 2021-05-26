@@ -151,65 +151,6 @@ public class HomeWork_4_23 {
         return map[rowNumber][columnNumber] != DOT_EMPTY;
     }
 
-    /*private static boolean isPlayerWin(char c) {
-        int counter = 0;
-        //check row
-        for (int i = 0; i < SIZE; i++){
-            for (int j = 0; j < SIZE; j++) {
-                if(map[i][j] == c){
-                    counter++;
-                    if(counter == DOTS_TO_WIN){
-                        return true;
-                    }
-                } else {
-                    counter = 0;
-                }
-            }
-        }
-
-        //check column
-        for (int i = 0; i < SIZE; i++){
-            counter = 0;
-            for (int j = 0; j < SIZE; j++) {
-                if(map[j][i] == c){
-                    counter++;
-                    if(counter == DOTS_TO_WIN){
-                        return true;
-                    }
-                } else {
-                    counter = 0;
-                }
-            }
-        }
-
-        //check diagonal #1
-        counter = 0;
-        for (int i = 0; i < SIZE; i++){
-            if(map[i][i] == c){
-                counter++;
-                if(counter == DOTS_TO_WIN){
-                    return true;
-                }
-            } else {
-                counter = 0;
-            }
-        }
-
-        //check diagonal #2
-        counter = 0;
-        for (int i = 0; i < SIZE; i++){
-            if(map[i][SIZE - i -1] == c){
-                counter++;
-                if(counter == DOTS_TO_WIN){
-                    return true;
-                }
-            } else {
-                counter = 0;
-            }
-        }
-        return false;
-    }*/
-
     private static boolean isTurnWin(char c, int x, int y){
         int counter;
         int startCountX;
