@@ -152,14 +152,15 @@ public class HomeWork_4_23 {
     }
 
     private static boolean isTurnWin(char c, int x, int y){
-        int counter;
-        int startCountX;
-        int endCountX;
+        if (checkRow(c, x, y)) return true;
+        if (checkColumns(c, x, y)) return true;
+        return checkDiagonals(c, x, y);
+    }
+
+    private static boolean checkRow(char c, int x, int y) {
         int startCountY;
         int endCountY;
-
-
-        // check row
+        int counter;
         startCountY = y - (DOTS_TO_WIN - 1);
         endCountY = y + (DOTS_TO_WIN -1);
         while (startCountY < 0){
@@ -179,8 +180,13 @@ public class HomeWork_4_23 {
                 counter = 0;
             }
         }
+        return false;
+    }
 
-        //check columns
+    private static boolean checkColumns(char c, int x, int y) {
+        int startCountX;
+        int endCountX;
+        int counter;
         startCountX = x - (DOTS_TO_WIN - 1);
         endCountX = x + (DOTS_TO_WIN -1);
         while (startCountX < 0){
@@ -200,8 +206,16 @@ public class HomeWork_4_23 {
                 counter = 0;
             }
         }
+        return false;
+    }
 
-        //check diagonal#1
+    private static boolean checkDiagonals(char c, int x, int y) {
+        int startCountX;
+        int startCountY;
+        int endCountX;
+        int endCountY;
+        int counter;
+
         startCountX = x - (DOTS_TO_WIN - 1);
         startCountY = y - (DOTS_TO_WIN - 1);
         endCountX = x + (DOTS_TO_WIN - 1);
@@ -227,7 +241,7 @@ public class HomeWork_4_23 {
             }
         }
 
-        //check diagonal#2
+
         startCountX = x + (DOTS_TO_WIN - 1);
         startCountY = y - (DOTS_TO_WIN - 1);
         endCountX = x - (DOTS_TO_WIN -1);
