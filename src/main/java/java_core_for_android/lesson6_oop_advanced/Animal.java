@@ -14,6 +14,14 @@ public abstract class Animal {
         this.name = name;
         amountOfAnimals++;
     }
+
+    public Animal(String name, int runDistanceLimit, int swimDistanceLimit) {
+        this.name = name;
+        this.runDistanceLimit = runDistanceLimit;
+        this.swimDistanceLimit = swimDistanceLimit;
+        amountOfAnimals++;
+    }
+
     public void run(int distance){
         if(runDistanceLimit == 0) {
             System.out.printf("%s не умеет бегать.%n", name);

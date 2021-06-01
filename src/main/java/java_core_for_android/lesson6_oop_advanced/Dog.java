@@ -5,13 +5,18 @@ package java_core_for_android.lesson6_oop_advanced;
 
 public class Dog extends Animal{
     protected static int amountOfDogs = 0;
-    private final int DOG_RUN_DISTANCE_LIMIT = 500;
-    private final int DOG_SWIM_DISTANCE_LIMIT = 10;
+    private final int DEFAULT_DOG_RUN_DISTANCE_LIMIT = 500;
+    private final int DEFAULT_DOG_SWIM_DISTANCE_LIMIT = 10;
 
     public Dog(String name) {
         super(name);
-        super.setRunDistanceLimit(DOG_RUN_DISTANCE_LIMIT);
-        super.setSwimDistanceLimit(DOG_SWIM_DISTANCE_LIMIT);
+        super.setRunDistanceLimit(DEFAULT_DOG_RUN_DISTANCE_LIMIT);
+        super.setSwimDistanceLimit(DEFAULT_DOG_SWIM_DISTANCE_LIMIT);
+        amountOfDogs++;
+    }
+
+    public Dog(String name, int dogRunDistanceLimit, int dogSwimDistanceLimit) {
+        super(name, dogRunDistanceLimit, dogSwimDistanceLimit);
         amountOfDogs++;
     }
 

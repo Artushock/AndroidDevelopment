@@ -6,15 +6,20 @@ package java_core_for_android.lesson6_oop_advanced;
 public class Main {
 
     public static void main(String[] args) {
-        Animal cat = new Cat("Васька");
-        Animal dog = new Dog("Бобик");
 
-        cat.run(100);
-        cat.swim(5);
+        Animal[] animals = {
+                new Cat("Васька"),
+                new Dog("Бобик"),
+                new Cat("Мурзик", 300, 15),
+                new Dog("Бобик", 1000, 50)
+        };
 
-        dog.run(350);
-        dog.swim(50);
+        for (Animal animal : animals){
+            animal.run(200);
+            animal.swim(5);
+        }
 
+        System.out.println();
         System.out.println("Количество животных: " + Animal.amountOfAnimals);
         System.out.println("Количество котов: " + Cat.amountOfCats);
         System.out.println("Количество собак: " + Dog.amountOfDogs);
