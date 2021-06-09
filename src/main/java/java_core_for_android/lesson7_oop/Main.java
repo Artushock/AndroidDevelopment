@@ -4,29 +4,38 @@ package java_core_for_android.lesson7_oop;
 */
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
+
+        CatsShelter catsShelter = new CatsShelter();
+
         Cat[] cats = {
                 new Cat("Мурзик"),
                 new Cat("Барсик"),
                 new Cat("Рыжий")
         };
-        Plate plate = new Plate(70);
+        catsShelter.addCats(cats);
 
-        plate.printInfo();
-        feedCat(cats, plate);
 
-        plate.addFoodToPlate(50);
-        feedCat(cats, plate);
-    }
+        Bowl[] bowls = {
+                new Bowl(),
+                new Bowl(100, "Green"),
+                new Bowl("Red"),
+                new Bowl(70, "Black")
+        };
+        catsShelter.addBowls(bowls);
+        catsShelter.addFoodToStorage(350);
 
-    private static void feedCat(Cat[] cats, Plate plate) throws InterruptedException {
-        while (plate.getAmountOfFood() > 0) {
-            for (Cat cat : cats) {
-                cat.eat(plate);
-                cat.satietyInfo();
-            }
-            plate.printInfo();
-            Thread.sleep(200);
+        catsShelter.printInfo();
+        catsShelter.printBowlsInfo();
+        catsShelter.printCatsInfo();
+
+        while (catsShelter.isThereFood()) {
+            catsShelter.feedCats();
+            catsShelter.printBowlsInfo();
+            catsShelter.printCatsInfo();
         }
+
+        catsShelter.printInfo();
+
     }
 }

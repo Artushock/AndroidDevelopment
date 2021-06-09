@@ -3,32 +3,48 @@ package java_core_for_android.lesson7_oop;
     @author Artiom Ponomariov
 */
 
+import java.util.Formatter;
 import java.util.Random;
 
 public class Cat {
     private final String name;
     private final Random random = new Random();
     private boolean satiety = false;
-    private int actualAppetite;
-    private int maxAppetite;
+    private int actualAppetite = 0;
+    private int maxAppetite = 0;
 
     public Cat(String name) {
         this.name = name;
     }
 
-    public boolean eat(Plate plate) {
+    public String getName() {
+        return name;
+    }
+
+    public boolean eat(Bowl bowl) {
         maxAppetite = random.nextInt(4) + 3;
-        actualAppetite = plate.decreaseFood(maxAppetite);
-        return satiety = maxAppetite == actualAppetite;
-    }
-
-    public void satietyInfo(){
-        if (satiety){
-            System.out.printf("Кот %s сыт! Сытость: %d из %d%n",name, actualAppetite, maxAppetite);
+        if (bowl != null){
+            actualAppetite = bowl.decreaseFood(maxAppetite);
+            return satiety = maxAppetite == actualAppetite;
         } else {
-            System.out.printf("Кот %s голоден! Сытость: %d из %d%n",name, actualAppetite, maxAppetite);
+            satiety = false;
+            actualAppetite = 0;
+            return false;
         }
+
     }
 
-
+    @Override
+    public String toString() {
+        StringBuilder catInfo = new StringBuilder("Кот " + name);
+        String s;
+        if (satiety){
+            s = " cыт. " + actualAppetite +"/" + maxAppetite + ".";
+        } else if (maxAppetite == 0) {
+           s = " не обедал.";
+        } else {
+            s = " голоден. " + actualAppetite +"/" + maxAppetite + ".";
+        }
+        return catInfo.append(s).toString();
+    }
 }
