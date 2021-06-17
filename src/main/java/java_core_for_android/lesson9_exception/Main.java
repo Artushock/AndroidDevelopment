@@ -31,13 +31,11 @@ public class Main {
     }
 
     protected static int sumStringArray(String[][] strings) throws MyArrayDataException, MySizeArrayException {
-
-        if (strings.length != ARR_LENGHT || strings[0].length != ARR_LENGHT) {
-            throw new MySizeArrayException("Некорректная длинна массива");
-        }
-
         int sum = 0;
         for (int i = 0; i < strings.length; i++) {
+            if (strings.length != ARR_LENGHT || strings[i].length != ARR_LENGHT) {
+                throw new MySizeArrayException("Некорректная длинна массива");
+            }
             for (int j = 0; j < strings[i].length; j++) {
                 String string = strings[i][j];
                 int numeber = 0;
